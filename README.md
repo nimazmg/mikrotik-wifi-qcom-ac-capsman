@@ -56,9 +56,9 @@ WiFi clients on 192.168.150.0/24
 
 ```text
 scripts/
-  capsman-controller-vlan150.rsc
-  cap-ac-access-vlan150.rsc
-  cap-ac-trunk-vlan150.rsc
+  capsman-controller.rsc
+  cap-ac-access.rsc
+  cap-ac-trunk.rsc
 docs/
   design-notes.md
 ```
