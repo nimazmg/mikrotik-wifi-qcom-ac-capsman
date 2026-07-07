@@ -70,7 +70,7 @@ docs/
 Use:
 
 ```text
-scripts/cap-ac-access-vlan150.rsc
+scripts/cap-ac-access.rsc
 ```
 
 Use this if the switch port connected to the cAP AC is configured like this:
@@ -87,7 +87,7 @@ In this design, the cAP AC does not need to tag frames itself. The switch places
 Use:
 
 ```text
-scripts/cap-ac-trunk-vlan150.rsc
+scripts/cap-ac-trunk.rsc
 ```
 
 Use this if the switch port connected to the cAP AC is configured like this:
@@ -104,7 +104,7 @@ In this design, the cAP AC handles VLAN 150 tagging on its Ethernet uplink.
 Use:
 
 ```text
-scripts/capsman-controller-vlan150.rsc
+scripts/capsman-controller.rsc
 ```
 
 This configures:
@@ -137,13 +137,19 @@ Before applying any script:
 Upload the `.rsc` file to the MikroTik and run:
 
 ```routeros
-/import file-name=cap-ac-access-vlan150.rsc
+/import file-name=cap-ac-access.rsc
 ```
 
 or:
 
 ```routeros
-/import file-name=capsman-controller-vlan150.rsc
+/import file-name=cap-ac-trunk.rsc
+```
+
+or:
+
+```routeros
+/import file-name=capsman-controller.rsc
 ```
 
 ## License
