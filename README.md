@@ -1,3 +1,10 @@
+# MikroTik cAP Configuration
+
+![MikroTik Script](https://img.shields.io/badge/MikroTik-Script-blue?logo=router)
+
+This repository contains a working configuration for a MikroTik RBcAPGi-5acD2nD access point...
+
+
 # MikroTik wifi-qcom-ac CAPsMAN with VLAN 150
 
 GitHub-ready MikroTik RouterOS v7 configuration templates for running MikroTik **cAP AC** access points with the modern **`wifi-qcom-ac`** package and central CAPsMAN management.
