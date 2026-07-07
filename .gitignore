@@ -1,0 +1,11 @@
+# Local notes / secrets
+*.backup
+*.rsc.bak
+*.secret
+.env
+
+# Terraform state if this repo is combined with Terraform later
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
