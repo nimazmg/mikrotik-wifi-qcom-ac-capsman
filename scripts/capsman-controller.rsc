@@ -14,6 +14,10 @@
 #
 # Replace these values before using:
 #   CHANGE_ME_WIFI_PASSWORD
+#   CHANGE_ME_WIFI_2GHZ_SSID
+#   CHANGE_ME_WIFI_5GHZ_SSID
+#   CHANGE_ME_WIFI_DATAPATH_NAME
+#   CHANGE_ME_WIFI_SECURITY_NAME
 #   CHANGE_ME_COUNTRY
 #   CHANGE_ME_UPLINK_INTERFACE
 #
@@ -136,12 +140,12 @@ add address=192.168.150.0/24 list=Local comment="WiFi VLAN local network"
 #   Do not set CAPsMAN forwarding here.
 #   Do not rely on manager forwarding with wifi-qcom-ac cAP AC design.
 /interface wifi datapath
-add name=Store-Wi-Fi bridge=Local disabled=no comment="Local forwarding datapath"
+add name=CHANGE_ME_WIFI_DATAPATH_NAME bridge=Local disabled=no comment="Local forwarding datapath"
 
 # Security profile.
 # Replace CHANGE_ME_WIFI_PASSWORD before use.
 /interface wifi security
-add name=Store-main \
+add name=CHANGE_ME_WIFI_SECURITY_NAME \
     authentication-types=wpa2-psk \
     passphrase="CHANGE_ME_WIFI_PASSWORD" \
     disabled=no
@@ -149,20 +153,20 @@ add name=Store-main \
 # 2.4 GHz SSID template.
 # Replace CHANGE_ME_COUNTRY with your country, for example Armenia.
 /interface wifi configuration
-add name=Daryana-2GHz \
+add name=Store-2GHz \
     country=CHANGE_ME_COUNTRY \
-    ssid="Daryana-2GHz" \
-    security=Store-main \
-    datapath=Store-Wi-Fi \
+    ssid="CHANGE_ME_WIFI_2GHZ_SSID" \
+    security=CHANGE_ME_WIFI_SECURITY_NAME \
+    datapath=CHANGE_ME_WIFI_DATAPATH_NAME \
     disabled=no
 
 # 5 GHz SSID template.
 /interface wifi configuration
-add name=Daryana-5GHz \
+add name=Store-5GHz \
     country=CHANGE_ME_COUNTRY \
-    ssid="Daryana-5GHz" \
-    security=Store-main \
-    datapath=Store-Wi-Fi \
+    ssid="CHANGE_ME_WIFI_5GHZ_SSID" \
+    security=CHANGE_ME_WIFI_SECURITY_NAME \
+    datapath=CHANGE_ME_WIFI_DATAPATH_NAME \
     disabled=no
 
 
@@ -182,7 +186,7 @@ set enabled=yes interfaces=vlan150
 # Provision 5 GHz radios.
 /interface wifi provisioning
 add action=create-dynamic-enabled \
-    master-configuration=Daryana-5GHz \
+    master-configuration=Store-5GHz \
     name-format=cAP-5GHz \
     supported-bands=5ghz-ac \
     disabled=no
@@ -190,7 +194,7 @@ add action=create-dynamic-enabled \
 # Provision 2.4 GHz radios.
 /interface wifi provisioning
 add action=create-dynamic-enabled \
-    master-configuration=Daryana-2GHz \
+    master-configuration=Store-2GHz \
     name-format=cAP-2GHz \
     supported-bands=2ghz-n \
     disabled=no
