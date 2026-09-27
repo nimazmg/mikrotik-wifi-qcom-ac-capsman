@@ -176,7 +176,10 @@ add name=Store-5GHz \
 
 # CAPsMAN should listen on VLAN 150 because cAP devices get management IPs there.
 /interface wifi capsman
-set enabled=yes interfaces=vlan150
+set enabled=yes \
+    interfaces=vlan150 \
+    package-path=/flash/capsman-packages \
+    upgrade-policy=suggest-same-upgrade
 
 
 # ------------------------------------------------------------------------------
